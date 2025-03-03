@@ -38,7 +38,7 @@ wrapper.addEventListener('click', (e) => {
       setTimeout(() => (alertText.innerText = ''), 2000);
       throw new Error('Division by zero');
     }
-    input.value = String(eval(input.value)); // Compute and display result
+    input.value = Function('"use strict"; return (' + input.value + ')')()); // Compute and display result
   } else if (element.classList.contains('percent')) {
     // Convert current input to percentage
     if (input.value.length > 0) {
